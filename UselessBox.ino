@@ -5,9 +5,10 @@ Servo boxServo;
 
 int switchStatus = 0;
 int action = 1;
-int randNumber = 0;
 int testMode = 0;       // change testMode to 1 to enter test mode and 0 to run normally
 int testAction = 0;     // if in test mode change testAction to the move number you want to test; library of moves at bottom             
+
+// pin connections
 const int ledPin = 13;                    
 const int frontSwitchPin = 2;
 const int handServoPin = 5;
@@ -22,10 +23,10 @@ void setup()
   pinMode(ledPin, OUTPUT);                  
   digitalWrite(ledPin,HIGH);
   
-  handServo.attach(handServoPin);              
-  boxServo.attach(boxServoPin);
-  handServo.write(180);                        
-  boxServo.write(70);
+  handServo.attach(handServoPin);         
+  boxServo.attach(boxServoPin);      
+  handServo.write(180);              // setting base position for hand servo     
+  boxServo.write(70);                // setting base position for box servo
 }
 
 
