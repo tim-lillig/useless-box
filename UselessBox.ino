@@ -7,7 +7,7 @@ int switchStatus = 0;
 int action = 1;
 int randNumber = 0;
 int testMode = 0;       // change testMode to 1 to enter test mode and 0 to run normally
-int testAction = 0;     // if in test mode change testAction to the move you want to test             
+int testAction = 0;     // if in test mode change testAction to the move number you want to test; library of moves at bottom             
 const int ledPin = 13;                    
 const int frontSwitchPin = 2;
 const int handServoPin = 5;
@@ -32,12 +32,12 @@ void setup()
 void loop()
 {
   switchStatus = digitalRead(frontSwitchPin); 
-  //action = random(1,18);   //uncomment to make actions random
+  //action = random(1,18);   // uncomment to make actions random
   
-  if (switchStatus == LOW){                   
+  if (switchStatus == LOW){        // if flip is switched           
     
-    if(testMode == 0){
-      
+    if(testMode == 0){             // if test mode is off
+                                   // enters main loop of 18 actions
       if (action == 1)
       {
         move1();
@@ -147,7 +147,7 @@ void loop()
         action = 1;
       }
     }
-    else
+    else           // if test mode is on
     {
       if(testAction == 1){move1();}
       else if(testAction == 2){move2();}
@@ -171,6 +171,8 @@ void loop()
   }
   
 }
+
+
 // move library
 void move1()
 {
