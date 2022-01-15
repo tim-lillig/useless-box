@@ -32,7 +32,7 @@ void setup()
 void loop()
 {
   switchStatus = digitalRead(frontSwitchPin); 
-  //action = random(1,16);   //uncomment to make actions random
+  //action = random(1,18);   //uncomment to make actions random
   
   if (switchStatus == LOW){                   
     
@@ -40,8 +40,8 @@ void loop()
       
       if (action == 1)
       {
-      move1();
-      action++;
+        move1();
+        action++;
       }
       
       else if (action == 2)
@@ -64,8 +64,8 @@ void loop()
       
       else if (action == 5)
       {
-      move5();
-      action++;
+        move5();
+        action++;
       }
       
       else if (action == 6)             
@@ -126,6 +126,24 @@ void loop()
       else if (action == 15)
       {
         move15();
+        action++;
+      }
+      
+      else if (action == 16)
+      {
+        move16();
+        action++;
+      }
+      
+      else if (action == 17)
+      {
+        move17();
+        action++;
+      }
+      
+      else if (action == 18)
+      {
+        move18();
         action = 1;
       }
     }
@@ -146,6 +164,9 @@ void loop()
       else if(testAction == 13){move13();}
       else if(testAction == 14){move14();}
       else if(testAction == 15){move15();}
+      else if(testAction == 16){move16();}
+      else if(testAction == 17){move17();}
+      else if(testAction == 18){move18();}
     }
   }
   
@@ -153,21 +174,51 @@ void loop()
 // move library
 void move1()
 {
-      Serial.println("Action 1");           
+  Serial.println("Action 1");
+  for (int i = 70; i <= 110; i++){
+        boxServo.write(i);
+        delay(6);
+      }
+      delay(550);
+      handServo.write(35);
+      delay(550);
+      handServo.write(180);
+      delay(550);
+      boxServo.write(70);
+}
+
+void move2()
+{
+  Serial.println("Action 2");
+  for (int i = 70; i <= 110; i++){
+        boxServo.write(i);
+        delay(6);
+      }
+      delay(550);
+      handServo.write(35);
+      delay(550);
+      handServo.write(180);
+      delay(550);
+      boxServo.write(70);
+}
+
+void move3()
+{
+      Serial.println("Action 4");           
       for (int i = 70; i <= 110; i++)
       {
         boxServo.write(i);
         delay(20);
       }
-      for (int i = 180; i >= 35; i--)
+      for (int i = 180; i >= 44; i--)
       {
         handServo.write(i);
         delay(20);
       }
       delay(1000);
-      handServo.write(26);
+      handServo.write(35);
       delay(200);
-      for (int i = 26; i <=180; i++)
+      for (int i = 35; i <=180; i++)
       {
         handServo.write(i);
         delay(20);
@@ -178,16 +229,39 @@ void move1()
         delay(20);
       }
 }
-
-void move2()
+void move4()
 {
-      Serial.println("Action 2");
+  for (int i = 70; i <= 110; i++){
+        boxServo.write(i);
+        delay(6);
+      }
+      delay(550);
+      handServo.write(35);
+      delay(550);
+      handServo.write(180);
+      delay(550);
+      boxServo.write(70);
+  delay(1500);
+  for (int i = 70; i <= 110; i++){
+    boxServo.write(i);
+    delay(6);
+  }
+  handServo.write(35);
+  delay(3000);
+  handServo.write(180);
+  delay(400);
+  boxServo.write(70);
+}
+
+void move5()
+{
+      Serial.println("Action 5");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
       }
       delay(550);
-      handServo.write(26);
+      handServo.write(35);
       delay(550);
       handServo.write(180);
       delay(550);
@@ -201,9 +275,9 @@ void move2()
       boxServo.write(70);
 }
 
-void move3()   
+void move6()   
 {
-      Serial.println("Action 3");
+      Serial.println("Action 6");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
@@ -215,37 +289,37 @@ void move3()
         boxServo.write(i);
         delay(6);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(550);
       handServo.write(180);
       delay(500);
       boxServo.write(70);
 }
 
-void move4()
+void move7()
     {
-      Serial.println("Action 4"); 
+      Serial.println("Action 7"); 
       for (int i = 70; i <= 110; i++)
       {
         boxServo.write(i);
         delay(20);
       }
-      for (int i = 180; i >= 35; i--)
+      for (int i = 180; i >= 44; i--)
       {
         handServo.write(i);
         delay(20);
       }
       delay(2000);
-      handServo.write(26);
+      handServo.write(35);
       delay(200);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
     
-void move5()
+void move8()
     {
-      Serial.println("Action 5"); 
+      Serial.println("Action 8"); 
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
@@ -273,15 +347,15 @@ void move5()
       delay(200);
       handServo.write(65);
       delay(2000);
-      handServo.write(26);
+      handServo.write(35);
       delay(400);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
-void move6()
+void move9()
     {
-      Serial.println("Action 6");      
+      Serial.println("Action 9");      
       for (int i = 70; i <110; i++)
       {
         boxServo.write(i);
@@ -296,12 +370,12 @@ void move6()
         }
         delay(200);
       }
-      for (int i = 180; i >= 35; i--)
+      for (int i = 180; i >= 44; i--)
       {
         handServo.write(i);
         delay(30);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(400);
       handServo.write(180);
       delay(400);
@@ -315,15 +389,15 @@ void move6()
       boxServo.write(80);
     }
     
-void move7()
+void move10()
     {
-      Serial.println("Action 7");
+      Serial.println("Action 10");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
       }
       delay(400);
-      handServo.write(26);
+      handServo.write(35);
       delay(1000);
       for (int i = 0; i < 6; i++)
       {
@@ -339,14 +413,14 @@ void move7()
       boxServo.write(70);
     }
     
-void move8()
+void move11()
     {
-      Serial.println("Action 8");
+      Serial.println("Action 11");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(2000);
       for (int i = 0; i < 7; i++)
       {
@@ -360,24 +434,24 @@ void move8()
       delay(1000);
       boxServo.write(70);
     }
-void move9()
+void move12()
     {
-      Serial.println("Action 9");
+      Serial.println("Action 12");
       for (int i = 70; i <= 105; i++){
         boxServo.write(i);
         delay(6);
       }
       delay(2000);
       boxServo.write(110);
-      for (int i = 180; i >=35; i--)
+      for (int i = 180; i >=44; i--)
       {
         handServo.write(i);
         delay(40);
       }
       delay(500);
-      handServo.write(26);
+      handServo.write(35);
       delay(200);
-      for (int i = 26; i <=180; i++)
+      for (int i = 35; i <=180; i++)
       {
         handServo.write(i);
         delay(40);
@@ -388,9 +462,9 @@ void move9()
       delay(3000);
       boxServo.write(70);
     }
-void move10()
+void move13()
     {
-      Serial.println("Action 10");
+      Serial.println("Action 13");
       for (int i = 70; i <= 105; i++)
       {
         boxServo.write(i);
@@ -407,20 +481,20 @@ void move10()
       }
       boxServo.write(110);
       delay(100);
-      handServo.write(26);
+      handServo.write(35);
       delay(650);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
-void move11()
+void move14()
     {
-      Serial.println("Action 11");
+      Serial.println("Action 14");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(2000);
       for (int i = 0; i < 3; i++)
       {
@@ -438,37 +512,37 @@ void move11()
         boxServo.write(i);
         delay(6);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(3000);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
     
-void move12()
+void move15()
     {
-      Serial.println("Action 12");
+      Serial.println("Action 15");
       for (int i = 70; i <= 110; i++)
       {
         boxServo.write(i);
         delay(50);
       }
       delay(1000);
-      for (int i = 180; i >= 26; i--)
+      for (int i = 180; i >= 35; i--)
       {
         handServo.write(i);
         delay(50);
       }
       delay(2000);
-      handServo.write(26);
+      handServo.write(35);
       delay(200);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
-void move13()
+void move16()
     {
-      Serial.println("Action 13");
+      Serial.println("Action 16");
       for (int i = 70; i <= 110; i++){
         boxServo.write(i);
         delay(6);
@@ -486,22 +560,22 @@ void move13()
         handServo.write(40);
         delay(800);
       }
-      handServo.write(26);
+      handServo.write(35);
       delay(2000);
       handServo.write(180);
       delay(500);
       boxServo.write(70);
     }
-void move14()
+void move17()
     {
-      Serial.println("Action 14");
+      Serial.println("Action 17");
       for (int i = 70; i <= 105; i++){
         boxServo.write(i);
         delay(6);
       }
       delay(4000);
       boxServo.write(110);
-      handServo.write(26);
+      handServo.write(35);
       delay(650);
       handServo.write(180);
       delay(500);
@@ -509,9 +583,9 @@ void move14()
       delay(4000);
       boxServo.write(70);
     }
-void move15()
+void move18()
  {
-      Serial.println("Action 15");
+      Serial.println("Action 18");
       for (int i = 70; i <= 105; i++){
         boxServo.write(i);
         delay(6);
@@ -533,16 +607,15 @@ void move15()
         boxServo.write(j);
         delay(50);
       }
-      for (int i = 180; i >= 35; i--)
+      for (int i = 180; i >= 44; i--)
       {
         handServo.write(i);
         delay(40);
       }
       delay(1000);
-      handServo.write(26);
+      handServo.write(35);
       delay(400);
       handServo.write(180);
       delay(400);
       boxServo.write(70);
     }
-   
