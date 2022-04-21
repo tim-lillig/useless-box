@@ -35,7 +35,7 @@ void loop()
   switchStatus = digitalRead(frontSwitchPin); 
   //action = random(1,18);   // uncomment to make actions random
   
-  if (switchStatus == LOW){        // if flip is switched           
+  if (switchStatus == LOW){        // if switch is flipped          
     
     if(testMode == 0){             // if test mode is off
                                    // enters main loop of 18 actions
